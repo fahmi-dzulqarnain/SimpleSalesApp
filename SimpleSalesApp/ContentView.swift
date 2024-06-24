@@ -8,17 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            
+            Text("Summary")
+                .tabItem {
+                    Label(
+                        "Summary",
+                        systemImage: "chart.pie.fill"
+                    )
+                }
+            
+            Text("Sales")
+                .tabItem {
+                    Label(
+                        "Sales",
+                        systemImage: "cart.fill"
+                    )
+                }
+            
+            ProductsView()
+                .tabItem {
+                    Label(
+                        "Products",
+                        systemImage: "shippingbox.fill"
+                    )
+                }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+}
+
+enum ProductType: String, CaseIterable {
+    case buah = "Buah"
+    case sayur = "Sayur"
 }
